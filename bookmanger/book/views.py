@@ -9,6 +9,60 @@ from django.shortcuts import redirect
 
 import json
 
+
+def set_cookies(request):
+
+    response = HttpResponse('set_cookies===OK')
+    response.set_cookie('itcast1','python1')
+    response.set_cookie('itcast2','python2',max_age=3600)
+    return response
+
+
+
+
+def get_cookies(request):
+
+    cookie = request.COOKIES.get('itcast2')
+    print(cookie)
+    return HttpResponse("get______OK")
+
+
+
+def del_cookies(request):
+    response = HttpResponse("del____OK_del")
+    response.delete_cookie('itcast2')
+    return response
+
+
+def set_session(request):
+    request.session['userid'] = 123123
+    request.session.set_expiry(None)
+    return HttpResponse('set===OK===session')
+
+
+def get_session(request):
+    userid = request.session.get('userid')
+
+    return HttpResponse(userid)
+
+
+from django.views import View
+
+class register(View):
+    def get(self,request):
+        return HttpResponse('get请求方式')
+    def post(self,request):
+        return  HttpResponse('post请求方式')
+
+
+
+
+
+
+
+
+
+
 def jsonres(request):
 
     return JsonResponse({'city':'beijing','age':'18'})
