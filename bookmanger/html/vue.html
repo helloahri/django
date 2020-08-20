@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue练习</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <ul>
+
+            <li v-for="(name,index) in news">{{index+1}}.{{name}}</li>
+        </ul>
+
+
+        <ul>
+
+            <li v-for="(value,key) in person">{{key}}:::{{value}}</li>
+        </ul>
+
+
+        <ul>
+            <li v-for="people in peoplelist">{{people.name}}---{{people.add}}---{{people.like}}</li>
+        </ul>
+        <hr>
+        <button v-on:click="count += 1">add 1</button>
+        <p>button的点击事件：{{count}}</p>
+        <hr>
+
+        <button v-on:click="inputcount">count点击事件</button>
+
+    </div>
+
+</body>
+
+
+
+<script type="text/javascript">
+var app = new Vue({
+    el: '#app',
+    // delimiters: ['[[',']]'],
+    data: {
+        message:'hello vue',
+        link:'https:www.baidu.com',
+        jingdong:'https:www.jd.com',
+
+        level: 1,
+
+        counter:1,
+        count:1,
+
+    methods: {
+        inputcount:function(){
+
+            alert("qwe")
+
+        }
+    },
+        news:["xinwen1","goubi2","neqwe3"],
+
+        person:{
+
+            name:"阿三",
+            add:"india",
+            like:"奶茶",
+
+
+        },
+        peoplelist:[
+            {
+                name:"danny",
+                add:"us",
+                like:"甜甜圈",
+            },
+            {
+                name:"liming",
+                add:"china",
+                like:"janny",
+            },
+            {
+                name:"danny",
+                add:"canada",
+                like:"papapa",
+            }
+        ]
+    }
+})
+
+// <script type="text/javascript">
+// var app = new Vue({
+//   el: '#app',
+//   data: {
+//     message: 'Hello Vue!'
+//   }
+// })
+</script>
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+</head>
+<body>
+    
+<div id="app">
+
+    <!-- {{message}} -->
+
+    <input type="text" name="todo" v-model="todo"> <button @click="push">添加</button>
+    <ul>
+        <li v-for="item in todolist">{{item}}</li>
+    </ul>
+
+
+</div>
+
+
+
+
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:"hellovue",
+            todo:'',
+            todolist:[],
+        },
+        methods:{
+            push:function(){
+                this.todolist.push(this.todo)
+            }
+        }
+        
+        
+    })
+</script>
+
+    
+    
+</body>
+</html>

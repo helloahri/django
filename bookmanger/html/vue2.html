@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">{{count}}
+
+        <button v-on:click="login(count)">count</button>
+
+        <table border="1">
+
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="username" v-model="username"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password" name="password" v-model="password"></td>
+            </tr>
+            <tr>
+                <td>所在地</td>
+                <td>
+                    <select name="city" v-model="city">
+                        <option value="北京">北京</option>
+                        <option value="上海">上海</option>
+                        <option value="深圳">深圳</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button @click="showMessage">提交</button>
+    </div>
+    
+
+
+
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            count:123,
+            username:'',
+            password:'',
+            city:'',
+        },
+        methods:{
+            login:function(aaa){
+                alert(aaa)
+            },
+            showMessage:function(){
+                alert(this.username+this.password+this.city)
+            }
+        }
+    })
+
+</script>
+</html>
